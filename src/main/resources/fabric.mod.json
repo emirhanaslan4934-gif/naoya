@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "naoya",
+  "version": "${version}",
+  "name": "Naoya",
+  "description": "Naoya client: Fly + Xray with a draggable GUI.",
+  "environment": "client",
+  "entrypoints": { "client": ["net.naoya.NaoyaClient"] },
+  "mixins": ["naoya.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
