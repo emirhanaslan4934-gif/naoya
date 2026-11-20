@@ -20,30 +20,17 @@ public class XrayModule extends Module {
         Blocks.NETHER_QUARTZ_ORE, Blocks.ANCIENT_DEBRIS
     );
 
-    private double oldGamma = 1.0;
-
     public XrayModule() { super("Xray"); }
 
     public boolean shouldRender(BlockState state) {
         return TARGETS.contains(state.getBlock());
     }
 
-    @Override
-    public void onEnable() {
-        MinecraftClient mc = MinecraftClient.getInstance();
-        oldGamma = mc.options.getGamma().getValue();
-        mc.options.getGamma().setValue(16.0); // fullbright
-        reload(mc);
-    }
+    @Override public void onEnable()  { reload(); }
+    @Override public void onDisable() { reload(); }
 
-    @Override
-    public void onDisable() {
+    private void reload() {
         MinecraftClient mc = MinecraftClient.getInstance();
-        mc.options.getGamma().setValue(oldGamma);
-        reload(mc);
-    }
-
-    private void reload(MinecraftClient mc) {
         if (mc.worldRenderer != null) mc.worldRenderer.reload();
     }
 }

@@ -7,7 +7,9 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
 import net.naoya.gui.NaoyaScreen;
+import net.naoya.module.AutoTotemModule;
 import net.naoya.module.FlyModule;
+import net.naoya.module.FullbrightModule;
 import net.naoya.module.Module;
 import net.naoya.module.XrayModule;
 import org.lwjgl.glfw.GLFW;
@@ -17,7 +19,7 @@ import java.util.List;
 public class NaoyaClient implements ClientModInitializer {
     public static final FlyModule FLY = new FlyModule();
     public static XrayModule XRAY = new XrayModule();
-    public static final List<Module> MODULES = List.of(FLY, XRAY);
+    public static final List<Module> MODULES = List.of(FLY, XRAY, new FullbrightModule(), new AutoTotemModule());
 
     private static KeyBinding openGui;
 
